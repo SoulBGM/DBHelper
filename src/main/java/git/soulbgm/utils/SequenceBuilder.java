@@ -10,7 +10,7 @@ import java.util.UUID;
  */
 public class SequenceBuilder {
 
-    private static Sequence seq = new Sequence(1, 1);
+    private static Sequence seq = new Sequence((int) (Math.random() * 9998) + 1, (int) (Math.random() * 9998) + 1);
 
     /**
      * 获取UUID
