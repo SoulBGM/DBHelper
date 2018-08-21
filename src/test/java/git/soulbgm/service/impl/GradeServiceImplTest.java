@@ -40,9 +40,6 @@ public class GradeServiceImplTest {
     public void saveBatch() {
         ArrayList<Grade> grades = ListUtil.newArrayList(getGrade(), getGrade(), getGrade(), getGrade(), getGrade(), getGrade(), getGrade(), getGrade(), getGrade(), getGrade(), getGrade());
         System.out.println(gradeService.saveBatch(grades));
-        for (Grade grade : grades) {
-            System.out.println(grade.getGradeId());
-        }
     }
 
     @Test
