@@ -3,14 +3,17 @@ package git.soulbgm.controller;
 import git.soulbgm.pojo.Grade;
 import git.soulbgm.pojo.Result;
 import git.soulbgm.service.GradeService;
+import git.soulbgm.service.impl.BaseServiceImpl;
+import git.soulbgm.utils.PropertyUtil;
+import git.soulbgm.utils.SpringBeanUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.List;
 
 /**
@@ -24,17 +27,31 @@ import java.util.List;
 public class SwaggerControllerDemo {
 
     /*
-     @Api：修饰整个类，描述Controller的作用
-     @ApiOperation：描述一个类的一个方法，或者说一个接口
-     @ApiParam：单个参数描述
-     @ApiModel：用对象来接收参数
-     @ApiProperty：用对象接收参数时，描述对象的一个字段
-     @ApiResponse：HTTP响应其中1个描述
-     @ApiResponses：HTTP响应整体描述
-     @ApiIgnore：使用该注解忽略这个API
-     @ApiError ：发生错误返回的信息
-     @ApiImplicitParam：一个请求参数
-     @ApiImplicitParams：多个请求参数
+    对象属性   	    @ApiModelProperty	用在出入参数对象的字段上
+    协议集描述	    @Api	            用于controller类上
+    协议描述	        @ApiOperation	    用在controller的方法上
+    Response集	    @ApiResponses	    用在controller的方法上
+    Response	    @ApiResponse	    用在 @ApiResponses里边
+    非对象参数集	    @ApiImplicitParams	用在controller的方法上
+    非对象参数描述	    @ApiImplicitParam	用在@ApiImplicitParams的方法里边
+    描述返回对象的意义	@ApiModel	        用在返回对象类上
+
+    @ApiImplicitParam
+    paramType		查询参数类型
+        path	        以地址的形式提交数据
+        query	        直接跟参数完成自动映射赋值
+        body	        以流的形式提交 仅支持POST
+        header	        参数在request headers 里边提交
+        form	        以form表单的形式提交 仅支持POST
+    dataType		参数的数据类型 只作为标志说明，并没有实际验证
+        Long
+        String
+    name		    接收参数名
+    value		    接收参数的意义描述
+    required		参数是否必填
+        true	        必填
+        false	        非必填
+    defaultValue	默认值
      */
 
     @Autowired
@@ -64,6 +81,13 @@ public class SwaggerControllerDemo {
             result.setMsg("添加年级成功id为" + grade.getGradeId());
         }
         return result;
+    }
+
+    @ApiOperation("获取配置文件数据")
+    @ApiImplicitParam(name = "key", value = "配置Key", paramType = "query", required = true)
+    @RequestMapping(value = "getProperty",method = RequestMethod.GET)
+    public String getProperty(@RequestParam("key") String key){
+        return PropertyUtil.getProperty(key);
     }
 
 }

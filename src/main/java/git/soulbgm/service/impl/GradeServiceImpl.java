@@ -14,6 +14,6 @@ import org.springframework.stereotype.Service;
  * @date 2018-08-16 17:51
  * @description
  */
-@Service
+@Service("gradeService")
 public class GradeServiceImpl extends BaseServiceImpl<GradeMapper, Grade> implements GradeService {
 }
