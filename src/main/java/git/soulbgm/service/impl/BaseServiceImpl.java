@@ -37,7 +37,6 @@ public abstract class BaseServiceImpl<M extends BaseMapper<T>, T> implements Bas
         idBuilder(t);
 
         return retBool(mapper.insertSelective(t));
-//        return retBool(mapper.insertUseGeneratedKeys(t));
     }
 
     @Override
