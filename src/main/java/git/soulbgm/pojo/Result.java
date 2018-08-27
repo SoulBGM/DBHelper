@@ -11,8 +11,17 @@ import lombok.Data;
 @Data
 public class Result {
 
+    /**
+     * 是否成功
+     */
     private boolean success;
+    /**
+     * 消息
+     */
     private String msg;
+    /**
+     * 返回值
+     */
     private Object obj;
 
 }

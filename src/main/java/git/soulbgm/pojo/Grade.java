@@ -15,9 +15,16 @@ import javax.persistence.Table;
 @Table(name = "grade")
 public class Grade {
 
+    /**
+     * ID标识
+     */
     @Id
     @IdBuild(idType = IdType.JDBC)
     private Long gradeId;
+
+    /**
+     * 年级名称
+     */
     private String gradeName;
 
 }

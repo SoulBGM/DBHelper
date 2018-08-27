@@ -1,0 +1,22 @@
+八月 27, 2018 3:04:45 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: project type not set, try to figure out...
+八月 27, 2018 3:04:45 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start find controllers in path : E:\IDEAFile\DBHelper\src\main\java\
+八月 27, 2018 3:04:46 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: find controller file : SwaggerControllerDemo.java
+八月 27, 2018 3:04:46 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs start...
+八月 27, 2018 3:04:46 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to parse controller file : SwaggerControllerDemo.java
+八月 27, 2018 3:04:46 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: we think Object should not be an enum type
+八月 27, 2018 3:04:46 下午 io.github.yedaxia.apidocs.LogUtils warn
+警告: warning!! Cannot find java file , in java file : E:\IDEAFile\DBHelper\src\main\java\git\soulbgm\pojo\Result.java, className : Object, we cannot found more information of it, you've better to make it a JavaBean
+八月 27, 2018 3:04:46 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: start to generate docs for controller file : SwaggerControllerDemo.java
+八月 27, 2018 3:04:46 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: success to generate docs for controller file : SwaggerControllerDemo.java
+八月 27, 2018 3:04:46 下午 io.github.yedaxia.apidocs.LogUtils info
+信息: info: generate api docs done !!!
+八月 27, 2018 3:04:46 下午 io.github.yedaxia.apidocs.LogUtils warn
+警告: warning!! docs config properties miss, we don't think you want to post to rap!

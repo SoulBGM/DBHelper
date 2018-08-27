@@ -1,5 +1,6 @@
 package git.soulbgm.controller;
 
+import git.soulbgm.common.annotation.ApiDoc;
 import git.soulbgm.pojo.Grade;
 import git.soulbgm.pojo.Result;
 import git.soulbgm.service.GradeService;
@@ -14,9 +15,12 @@ import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 测试接口
+ *
  * @author 贺瑞杰
  * @version V1.0
  * @date 2018-08-22 0:47
@@ -24,6 +28,7 @@ import java.util.List;
  */
 @Api("demo")
 @RestController
+@RequestMapping("/demo")
 public class SwaggerControllerDemo {
 
     /*
@@ -57,22 +62,42 @@ public class SwaggerControllerDemo {
     @Autowired
     private GradeService gradeService;
 
+    /**
+     * 查看所有的年级信息
+     *
+     * @return
+     */
     @ApiOperation(value = "查看所有的年级信息")
-    @RequestMapping(value = "queryAllGrade", method = RequestMethod.GET)
+    @RequestMapping(value = "/queryAllGrade", method = RequestMethod.GET)
+    @ApiDoc(Grade.class)
     public List<Grade> queryAllGrade() {
         return gradeService.findAll();
     }
 
+    /**
+     * 查询年级信息
+     *
+     * @param id ID标识
+     * @return
+     */
     @ApiOperation(value = "查询年级信息", notes = "根据Id查询年级信息")
     @ApiImplicitParam(name = "id", value = "年级ID", dataType = "Long", required = true, paramType = "path")
-    @RequestMapping(value = "queryById/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/queryById/{id}", method = RequestMethod.GET)
+    @ApiDoc(Grade.class)
     public Grade queryById(@PathVariable(value = "id") Long id) {
         return gradeService.findById(id);
     }
 
+    /**
+     * 添加年级信息
+     *
+     * @param grade 年级信息
+     * @return
+     */
     @ApiOperation("添加年级信息")
 //    @ApiImplicitParam(name = "grade", value = "年级信息", dataType = "Grade", required = true)
-    @RequestMapping(value = "addGrade", method = RequestMethod.POST)
+    @RequestMapping(value = "/addGrade", method = RequestMethod.POST)
+    @ApiDoc(Result.class)
     public Result addGrade(@RequestBody Grade grade) {
         Result result = new Result();
         boolean flag = gradeService.save(grade);
@@ -83,10 +108,17 @@ public class SwaggerControllerDemo {
         return result;
     }
 
+    /**
+     * 获取配置文件数据
+     *
+     * @param key 配置文件中的Key
+     * @return
+     */
     @ApiOperation("获取配置文件数据")
     @ApiImplicitParam(name = "key", value = "配置Key", paramType = "query", required = true)
-    @RequestMapping(value = "getProperty",method = RequestMethod.GET)
-    public String getProperty(@RequestParam("key") String key){
+    @RequestMapping(value = "/getProperty", method = RequestMethod.GET)
+    @ApiDoc(value = String.class)
+    public String getProperty(@RequestParam("key") String key) {
         return PropertyUtil.getProperty(key);
     }
 

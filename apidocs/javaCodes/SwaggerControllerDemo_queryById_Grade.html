@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Grade</title>
+<script src="https://cdn.bootcss.com/prettify/r298/prettify.min.js"></script>
+<link href="https://cdn.bootcss.com/prettify/r298/prettify.min.css" rel="stylesheet">
+<link href="../style.css" rel="stylesheet" />
+</head>
+<body onload="PR.prettyPrint()">
+<pre class="prettyprint lang-java">
+public class Grade implements Serializable{
+
+    private long gradeId; //ID标识
+    private String gradeName; //年级名称
+
+    @JSONField(name="gradeId")
+    public long getGradeId(){
+        return gradeId;
+    }
+
+    @JSONField(name="gradeId")
+    public void setGradeId(long gradeId){
+        this.gradeId = gradeId;
+    }
+
+    @JSONField(name="gradeName")
+    public String getGradeName(){
+        return gradeName;
+    }
+
+    @JSONField(name="gradeName")
+    public void setGradeName(String gradeName){
+        this.gradeName = gradeName;
+    }
+
+}
+</pre>
+
+
+
+</body>
+</html>
